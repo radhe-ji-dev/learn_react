@@ -14,11 +14,14 @@ import CountryFlags from './tasks/dayTwo/countryFlags';
 import StatesApp from './tasks/dayTwo/statesApp';
 import FullName from './tasks/dayTwo/fullName';
 import CountryFlagsSearch from './tasks/dayThree/countrySearch';
+import Pagination from './tasks/dayThree/pagination';
+import StopWatch from './tasks/dayThree/stopWatch';
+import WeatherApp from './tasks/dayThree/weatherapp';
 
 function App() {
 	return (
 		<div className='App'>
-			<CountryFlagsSearch />
+			<WeatherApp />
 		</div>
 	);
 }
