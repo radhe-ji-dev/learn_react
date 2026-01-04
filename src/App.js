@@ -12,11 +12,13 @@ import UncontrolledForm from './tasks/dayTwo/uncontrolledForm';
 import UseEffectExample from './tasks/dayTwo/useeffect';
 import CountryFlags from './tasks/dayTwo/countryFlags';
 import StatesApp from './tasks/dayTwo/statesApp';
+import FullName from './tasks/dayTwo/fullName';
+import CountryFlagsSearch from './tasks/dayThree/countrySearch';
 
 function App() {
 	return (
 		<div className='App'>
-			<StatesApp />
+			<CountryFlagsSearch />
 		</div>
 	);
 }
