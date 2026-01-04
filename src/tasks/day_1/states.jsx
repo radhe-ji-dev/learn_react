@@ -6,7 +6,7 @@ function CountAddition() {
 	return (
 		<div>
 			<h1>Count: {count}</h1>
-			<button onClick={() => setCount(count + 1)}>Add</button>
+			<button onClick={(prev) => setCount(prev + 1)}>Add</button>
 		</div>
 	);
 }

@@ -1,0 +1,40 @@
+useEffectInterview Questions
+What is the primary purpose of the useEffect hook in React?
+
+How does useEffect replace legacy class lifecycle methods like componentDidMount, componentDidUpdate, and componentWillUnmount?
+
+What is the difference between passing an empty dependency array, no array at all, or an array with specific variables?
+
+How do you correctly perform cleanups for subscriptions, intervals, or event listeners to prevent memory leaks?
+
+What are "stale closures," and how do they affect the logic inside an asynchronous effect?
+
+How do you handle asynchronous operations and data fetching within the useEffect hook?
+
+What are race conditions in data fetching, and how can you mitigate them using an "ignore flag" or AbortController?
+
+Why does useEffect run twice on the initial mount in development mode when using StrictMode? 
+
+What is the fundamental difference in execution timing between useEffect, useLayoutEffect, and useInsertionEffect?
+
+How do you identify and solve infinite re-rendering loops caused by state updates inside an effect? 
+
+Why is it generally discouraged to ignore the exhaustive-deps ESLint rule, and what are the standard ways to resolve its warnings? 
+
+How do you handle non-primitive dependencies like objects or arrays to avoid unnecessary re-synchronization? 
+
+How can you use the functional state update pattern to remove a state variable from the dependency array? 
+
+What is the benefit of defining helper functions inside the useEffect hook rather than outside? 
+
+How do you ensure an effect runs exactly once after the initial render of a component?
+
+In what scenarios should you choose useLayoutEffect over useEffect for DOM measurements or visual adjustments? 
+
+How does utilizing useReducer help decouple state logic from useEffect dependencies? 
+
+How do you implement debouncing or throttling logic for high-frequency events (like window resizing) within useEffect? 
+
+How can you read the latest props or state inside an effect without making the effect "react" to those changes (e.g., via the useEffectEvent hook)? 
+
+How do side-effect hooks behave during Server-Side Rendering (SSR) and the hydration process?
