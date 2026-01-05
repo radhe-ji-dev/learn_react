@@ -1,0 +1,61 @@
+1. What is `useRef` in React?
+   `useRef` is a hook that returns a persistent mutable object whose value survives across renders without causing re-renders.
+
+2. Does updating `ref.current` trigger a re-render?
+   No, updating `ref.current` does not trigger a re-render.
+
+3. What is the difference between `useRef` and `useState`?
+   `useState` is reactive and triggers re-renders, while `useRef` is non-reactive and does not trigger re-renders.
+
+4. When should you use `useRef` instead of `useState`?
+   When the value is not required for rendering the UI.
+
+5. What is the initial value of `useRef`?
+   It is the value passed to `useRef(initialValue)`.
+
+6. How does `useRef` help with DOM manipulation?
+   It provides direct access to a DOM element through `ref.current`.
+
+7. When is `ref.current` assigned the DOM element?
+   After the component is mounted and the DOM is rendered.
+
+8. Can you access `ref.current` during render?
+   No, it should not be accessed during render because it may be null.
+
+9. What is the difference between `useRef` and `createRef`?
+   `useRef` returns the same object on every render, while `createRef` creates a new object on every render.
+
+10. Why is `createRef` not recommended inside functional components?
+    Because it creates a new ref on each render, losing the previous reference.
+
+11. Why is `useRef` commonly used for debouncing and throttling?
+    Because timers need to persist across renders without triggering re-renders.
+
+12. How can you store the previous value of a prop or state using `useRef`?
+    By updating the ref inside a `useEffect` after each render.
+
+13. Can `useRef` replace `useState` completely?
+    No, because `useRef` does not cause re-renders and cannot update the UI.
+
+14. How does `useRef` help prevent stale closures?
+    By storing the latest value or callback in `ref.current`.
+
+15. Can `useRef` be used to cache API responses?
+    Yes, when the cached data does not need to trigger UI updates.
+
+16. Why does React not track changes to `ref.current`?
+    Because refs are meant for imperative, non-reactive data.
+
+17. Can the same ref be shared between multiple components?
+    No, unless it is passed using `forwardRef`.
+
+18. What is `forwardRef` in React?
+    It allows a parent component to pass a ref to a child component.
+
+19. Can improper use of `useRef` cause memory leaks?
+    Yes, if intervals, timeouts, or event listeners stored in refs are not cleaned up.
+
+20. When should you prefer global state (Redux) over `useRef`?
+    When the data must be shared across components and trigger UI updates.
+21. How do you reset a ref value?
+    By directly setting `ref.current` to the desired value.

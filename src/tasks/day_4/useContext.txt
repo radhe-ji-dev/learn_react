@@ -1,0 +1,86 @@
+
+## 🔹 Basics (Foundation Questions)
+
+1. **What problem does `useContext` solve in React?**
+   (Expect: prop drilling, global/shared state)
+
+2. **Explain Context API vs Props. When would you prefer Context?**
+
+3. **What are the main parts of Context API?**
+   (`createContext`, `Provider`, `Consumer`, `useContext`)
+
+4. **How does `useContext` work internally at a high level?**
+
+5. **Can you use `useContext` without a Provider? What happens?**
+
+---
+
+## 🔹 Usage & Patterns (Very Common)
+
+6. **How do you create and consume a context using `useContext`?**
+   (They often want a short code snippet)
+
+7. **What kind of data should be stored in Context? What should NOT be stored?**
+
+8. **How is `useContext` different from Redux or Zustand?**
+
+9. **Can multiple components consume the same context? How?**
+
+10. **Can one component consume multiple contexts?**
+
+---
+
+## 🔹 Performance & Pitfalls (Interview Favorite)
+
+11. **What is the biggest performance issue with `useContext`?**
+    (Re-renders of all consumers)
+
+12. **How do you optimize performance when using `useContext`?**
+
+* Splitting context
+* Memoizing value
+* Using `useMemo` / `useCallback`
+
+13. **Why does changing a context value re-render all consumers?**
+
+14. **How do you prevent unnecessary re-renders in Context consumers?**
+
+---
+
+## 🔹 Full-Stack / Real-World Scenarios (Important)
+
+15. **How would you manage authentication using `useContext` in a full-stack app?**
+    (Token, user info, login/logout)
+
+16. **How do you combine `useContext` with API calls (backend integration)?**
+
+17. **Where would you place your Context Provider in a large React app and why?**
+
+18. **How do you handle async state (loading, error, success) using Context?**
+
+---
+
+## 🔹 Advanced & Tricky (Senior-Level)
+
+19. **Why is Context not a state management library?**
+
+20. **Explain a real production scenario where `useContext` caused issues and how you fixed it.**
+    (Overuse, large re-renders, moved to Redux or split context)
+
+---
+
+## 🔥 BONUS: Rapid Fire Follow-ups Interviewers Ask
+
+* Can Context replace Redux completely?
+* Is Context good for frequently changing data?
+* Context vs Redux vs URL state?
+* Can backend data be stored permanently in Context?
+
+---
+
+## 🧠 Interview Tip (Very Important)
+
+> **Golden Rule Interviewers Love:**
+> **Context is for “who needs this data”, Redux is for “how complex is the data flow”.**
+
+> Always explain your reasoning based on the specific use-case rather than blanket statements.
