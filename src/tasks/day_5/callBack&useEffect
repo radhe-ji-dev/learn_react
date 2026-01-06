@@ -1,0 +1,35 @@
+import { useState, useMemo, useEffect } from "react";
+
+function MemoWithEffect() {
+  const [a, setA] = useState(1);
+  const [b, setB] = useState(2);
+  const [count, setCount] = useState(0);
+
+  console.log("🔁 Component rendered");
+
+  // 1️⃣ Derived value (memoized)
+  const sum = useMemo(() => {
+    console.log("➕ Calculating sum");
+    return a + b;
+  }, [a, b]);
+
+  // 2️⃣ Side effect reacting to derived value
+  useEffect(() => {
+    console.log("📡 Effect ran because sum changed:", sum);
+  }, [sum]);
+
+  return (
+    <>
+      <p>Sum: {sum}</p>
+
+      <button onClick={() => setA(a + 1)}>Change A</button>
+      <button onClick={() => setB(b + 1)}>Change B</button>
+
+      <button onClick={() => setCount(count + 1)}>
+        Re-render only
+      </button>
+    </>
+  );
+}
+
+export default MemoWithEffect;

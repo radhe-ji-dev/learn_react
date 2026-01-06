@@ -5,11 +5,13 @@ import MutableFlags from './tasks/day_4/mutableflags';
 import StableReference from './tasks/day_4/stableRefrence';
 import SearchDebounce from './tasks/day_4/debounce';
 import UseRefDom from './tasks/day_4/useRefDom';
+import UseMemoDemo from './tasks/day_5/useMemo';
+import SetSUM from './tasks/day_5/setSum';
 
 function App() {
 	return (
 		<div className='App'>
-			<UseRefDom />
+			<SetSUM />
 		</div>
 	);
 }
