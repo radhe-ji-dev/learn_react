@@ -40,12 +40,13 @@ function Dashboard() {
 	return (
 		<div className='container mt-4'>
 			{/* Top row: Wallet + Add Expense */}
+			<h1>Expense Tracker</h1>
 			<div className='row mb-4'>
 				<div className='card col-md-6 mb-3'>
 					<Wallet balance={balance} />
 				</div>
 				<div className='card col-md-6 mb-3'>
-					<AddExpense onAddExpense={handleAddExpense} />
+					<AddExpense onAddExpense={handleAddExpense} expenses={expenses} />
 				</div>
 			</div>
 

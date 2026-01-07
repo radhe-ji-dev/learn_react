@@ -7,9 +7,9 @@ function Wallet({ balance, onAddMoney }) {
 
 	return (
 		<div>
-			<h3>Balance: {balance}</h3>
+			<h3> Wallet Balance: {balance}</h3>
 			<button className='btn btn-primary' onClick={() => setShowModal(true)}>
-				Add Money
+				+Add Income
 			</button>
 
 			{showModal && (
@@ -19,7 +19,7 @@ function Wallet({ balance, onAddMoney }) {
 							<h5>Add Money</h5>
 							<input
 								type='number'
-								placeholder='Amount'
+								placeholder='IncomeAmount'
 								value={amount}
 								onChange={(e) => setAmount(e.target.value)}
 							/>

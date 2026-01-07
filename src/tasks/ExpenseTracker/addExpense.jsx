@@ -1,7 +1,6 @@
 import { useState } from 'react';
 
-function AddExpense({ onAddExpense }) {
-	// receive callback
+function AddExpense({ onAddExpense, expenses = [] }) {
 	const [showModal, setShowModal] = useState(false);
 	const [form, setForm] = useState({
 		title: '',
@@ -22,10 +21,8 @@ function AddExpense({ onAddExpense }) {
 			return;
 		}
 
-		// send expense to parent
 		onAddExpense(form);
 
-		// clear form
 		setForm({
 			title: '',
 			amount: '',
@@ -36,8 +33,14 @@ function AddExpense({ onAddExpense }) {
 		setShowModal(false);
 	};
 
+	// Safe total calculation
+	const totalExpenses = Array.isArray(expenses)
+		? expenses.reduce((sum, exp) => sum + Number(exp.amount), 0)
+		: 0;
+
 	return (
 		<div>
+			<h6>Total Expenses: ₹{totalExpenses}</h6>
 			<button className='btn btn-primary' onClick={() => setShowModal(true)}>
 				Add Expense
 			</button>
@@ -47,7 +50,9 @@ function AddExpense({ onAddExpense }) {
 					<div className='modal d-block'>
 						<div className='modal-dialog'>
 							<div className='modal-content p-4'>
-								<h5>Add Expense</h5>
+								<h5>+ Add Expense</h5>
+
+								{/* Show total sum */}
 
 								<form onSubmit={handleSubmit}>
 									<input
@@ -88,7 +93,7 @@ function AddExpense({ onAddExpense }) {
 								</form>
 
 								<button
-									className='btn btn-link mt-3 w-100 '
+									className='btn btn-link mt-3 w-100'
 									onClick={() => setShowModal(false)}>
 									Cancel
 								</button>
