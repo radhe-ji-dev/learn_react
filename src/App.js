@@ -8,11 +8,12 @@ import UseRefDom from './tasks/day_4/useRefDom';
 import UseMemoDemo from './tasks/day_5/useMemo';
 import SetSUM from './tasks/day_5/setSum';
 import DashBoard from './tasks/ExpenseTracker/dashboard';
+import SpellCheckApp from './tasks/spelchk';
 
 function App() {
 	return (
 		<div className='App'>
-			<DashBoard />
+			<SpellCheckApp />
 		</div>
 	);
 }
