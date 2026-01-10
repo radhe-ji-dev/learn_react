@@ -17,6 +17,9 @@ function Dashboard() {
 		setExpenses((prev) => [...prev, expense]);
 		setBalance((prev) => prev - Number(expense.amount));
 	};
+	const handleAddMoney = (amount) => {
+		setBalance((prev) => prev + amount);
+	};
 
 	// Delete expense
 	const handleDeleteExpense = (index) => {
@@ -43,17 +46,20 @@ function Dashboard() {
 			<h1>Expense Tracker</h1>
 			<div className='row mb-4'>
 				<div className='card col-md-6 mb-3'>
-					<Wallet balance={balance} />
+					<Wallet balance={balance} onAddMoney={handleAddMoney} />
 				</div>
 				<div className='card col-md-6 mb-3'>
 					<AddExpense onAddExpense={handleAddExpense} expenses={expenses} />
 				</div>
 			</div>
-
-			{/* Middle row: Category summary */}
-			<div className='card row mb-4'>
+			<div className='card row'>
 				<div className='col'>
-					<CategorySummary expenses={expenses} />
+					<h2>Transactions</h2>
+					<ExpenseList
+						expenses={expenses}
+						onDelete={handleDeleteExpense}
+						onEdit={handleEditExpense}
+					/>
 				</div>
 			</div>
 
@@ -74,15 +80,6 @@ function Dashboard() {
 			</div>
 
 			{/* Bottom row: Expense List */}
-			<div className='card row'>
-				<div className='col'>
-					<ExpenseList
-						expenses={expenses}
-						onDelete={handleDeleteExpense}
-						onEdit={handleEditExpense}
-					/>
-				</div>
-			</div>
 		</div>
 	);
 }

@@ -1,32 +1,31 @@
 import { useState } from 'react';
 
 function Wallet({ balance, onAddMoney }) {
-	// <- receive function as prop
 	const [showModal, setShowModal] = useState(false);
 	const [amount, setAmount] = useState('');
 
 	return (
 		<div>
-			<h3> Wallet Balance: {balance}</h3>
+			<h3>Wallet Balance: ₹{balance}</h3>
 			<button className='btn btn-primary' onClick={() => setShowModal(true)}>
-				+Add Income
+				+ Add Income
 			</button>
 
 			{showModal && (
 				<div className='modal d-block'>
 					<div className='modal-dialog'>
 						<div className='modal-content p-3'>
-							<h5>Add Money</h5>
+							<h5>Add Balance</h5>
 							<input
 								type='number'
-								placeholder='IncomeAmount'
 								value={amount}
 								onChange={(e) => setAmount(e.target.value)}
 							/>
 							<button
-								className='btn-primary'
+								className='btn btn-primary'
 								onClick={() => {
-									onAddMoney(Number(amount)); // <- call parent
+									if (!amount) return;
+									onAddMoney(Number(amount));
 									setAmount('');
 									setShowModal(false);
 								}}>

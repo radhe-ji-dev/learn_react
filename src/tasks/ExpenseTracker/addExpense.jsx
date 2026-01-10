@@ -79,6 +79,7 @@ function AddExpense({ onAddExpense, expenses = [] }) {
 										<option value='Food'>Food</option>
 										<option value='Travel'>Travel</option>
 										<option value='Shopping'>Shopping</option>
+										<option value='Entertainment'>Entertainment</option>
 									</select>
 									<input
 										type='date'

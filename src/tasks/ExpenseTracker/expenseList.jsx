@@ -26,7 +26,6 @@ function ExpenseList({ expenses, onDelete, onEdit }) {
 
 	return (
 		<div className='m-3'>
-			<h5>All Expenses</h5>
 			{expenses.length === 0 ? (
 				<p>No expenses yet</p>
 			) : (
@@ -80,8 +79,8 @@ function ExpenseList({ expenses, onDelete, onEdit }) {
 							) : (
 								<>
 									<span>
-										{expense.title} - ${expense.amount} ({expense.category}) on{' '}
-										{expense.date}
+										<p>{expense.category}</p>
+										<p>{expense.date}</p>
 									</span>
 									<div>
 										<button
