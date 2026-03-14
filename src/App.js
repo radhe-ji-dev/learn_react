@@ -10,11 +10,19 @@ import SetSUM from './tasks/day_5/setSum';
 import DashBoard from './tasks/ExpenseTracker/dashboard';
 import SpellCheckApp from './tasks/spelchk';
 
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+import Dashboard from './tasks/Medify/dashboard';
+import MyBookings from './tasks/Medify/mybookings';
+
 function App() {
 	return (
-		<div className='App'>
-			<SpellCheckApp />
-		</div>
+		<BrowserRouter>
+			<Routes>
+				<Route path='/' element={<Dashboard />} />
+				<Route path='/my-bookings' element={<MyBookings />} />
+			</Routes>
+		</BrowserRouter>
 	);
 }
 
