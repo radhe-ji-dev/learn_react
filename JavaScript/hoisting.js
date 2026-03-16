@@ -65,6 +65,20 @@ function outer() {
 	console.log(a); // Output: 6
 	inner();
 }
+// Only declarations are hoisted, not initializations or values.
+
+console.log(a);
+var a = 20;
+console.log(a);
+
+// will go as in GEC
+// var a;
+
+// console.log(a);
+
+// a = 20;
+
+// console.log(a);
 
 console.log(outer()); // Output: undefined 10
 

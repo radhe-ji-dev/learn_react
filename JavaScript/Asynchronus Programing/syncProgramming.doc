@@ -1,5 +1,6 @@
-**Synchronous programming (Sync programming)** means the code runs **step-by-step in sequence**. Each operation must **finish before the next one starts**. The program **waits** for the current task to complete.
-
+**Synchronous programming (Sync programming)** means the code runs **step-by-step in sequence**.
+ Each operation must **finish before the next one starts**. 
+The program **waits** for the current task to complete.
 Think of it like a **single queue**: one task finishes → then the next begins.
 
 ---
