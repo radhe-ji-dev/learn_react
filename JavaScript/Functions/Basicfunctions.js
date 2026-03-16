@@ -28,6 +28,20 @@ function greet(name, callback) {
 	callback(greeting);
 }
 
+// function with are and rest parameters
+function calculate(operation, ...numbers) {
+	return numbers.reduce((total, num) => operation(total, num), 0);
+}
+
+// function with nested functions
+function outerFunction(x) {
+	function innerFunction(y) {
+		return x + y;
+	}
+
+	return innerFunction;
+}
+
 // example usage
 console.log(add(5, 3));
 console.log(subtract(5, 3));

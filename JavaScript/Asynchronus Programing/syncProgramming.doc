@@ -1,0 +1,192 @@
+**Synchronous programming (Sync programming)** means the code runs **step-by-step in sequence**. Each operation must **finish before the next one starts**. The program **waits** for the current task to complete.
+
+Think of it like a **single queue**: one task finishes → then the next begins.
+
+---
+
+## 1️⃣ Simple Idea
+
+In synchronous programming:
+
+```
+Task 1 → Task 2 → Task 3
+```
+
+* Task 2 **cannot start** until Task 1 finishes.
+* Task 3 **cannot start** until Task 2 finishes.
+
+The program **blocks (waits)** during execution.
+
+---
+
+## 2️⃣ Example (JavaScript)
+
+```javascript
+function task1() {
+  console.log("Task 1 started");
+  console.log("Task 1 finished");
+}
+
+function task2() {
+  console.log("Task 2 started");
+  console.log("Task 2 finished");
+}
+
+task1();
+task2();
+```
+
+### Output
+
+```
+Task 1 started
+Task 1 finished
+Task 2 started
+Task 2 finished
+```
+
+Execution order is **strict and predictable**.
+
+---
+
+## 3️⃣ Blocking Example
+
+Imagine reading a file synchronously.
+
+```javascript
+const fs = require("fs");
+
+const data = fs.readFileSync("file.txt", "utf8");
+
+console.log(data);
+console.log("Program finished");
+```
+
+What happens:
+
+1. Program **starts**
+2. `readFileSync()` **blocks the program**
+3. Node waits until file reading finishes
+4. Then next line runs
+
+Flow:
+
+```
+Start
+ ↓
+Read File (wait here)
+ ↓
+Print data
+ ↓
+Program finished
+```
+
+---
+
+## 4️⃣ Real Life Example
+
+Think of **ordering tea at a stall** ☕
+
+Single worker:
+
+```
+Person 1 order → Tea made → Served
+Person 2 order → Tea made → Served
+Person 3 order → Tea made → Served
+```
+
+Everyone **waits for previous person**.
+
+That is **synchronous**.
+
+---
+
+## 5️⃣ Characteristics of Synchronous Programming
+
+| Feature           | Explanation             |
+| ----------------- | ----------------------- |
+| Sequential        | Code runs line by line  |
+| Blocking          | Program waits for tasks |
+| Simple logic      | Easy to understand      |
+| Predictable order | Execution order fixed   |
+
+---
+
+## 6️⃣ Problem with Sync Programming
+
+Suppose a **database request takes 5 seconds**.
+
+```
+Fetch Data (5 sec)
+Process Data
+Show Result
+```
+
+The program **freezes for 5 seconds**.
+
+This is inefficient for:
+
+* APIs
+* Servers
+* UI apps
+* Networking
+
+That is why **asynchronous programming exists**.
+
+---
+
+## 7️⃣ Sync vs Async (Quick Comparison)
+
+| Feature    | Synchronous    | Asynchronous            |
+| ---------- | -------------- | ----------------------- |
+| Execution  | One by one     | Parallel / non-blocking |
+| Waiting    | Yes            | No                      |
+| Speed      | Slower for I/O | Faster for I/O          |
+| Complexity | Simple         | More complex            |
+
+Example:
+
+**Sync**
+
+```
+Download file → Wait → Process
+```
+
+**Async**
+
+```
+Start download
+Do other work
+When download finishes → Process
+```
+
+---
+
+## 8️⃣ In JavaScript Context
+
+JavaScript has:
+
+* **Synchronous core**
+* **Asynchronous APIs**
+
+Example async tools:
+
+* `setTimeout`
+* `Promise`
+* `async/await`
+* `fetch`
+* Node.js APIs
+
+---
+
+✅ **Summary**
+
+Synchronous programming means:
+
+* Tasks run **one after another**
+* The program **waits (blocks)** until each task finishes
+* Execution order is **strict and sequential**
+
+---
+
+If you want, I can also explain the **JavaScript Event Loop with sync vs async execution** (this is one of the **most asked JS interview topics**).
