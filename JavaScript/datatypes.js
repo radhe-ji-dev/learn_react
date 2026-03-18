@@ -33,7 +33,15 @@ map.set('name', 'John Doe');
 map.set('age', 30);
 map.set('isStudent', true);
 
-// nan
+// nan is created when we try to perform an invalid mathematical operation,
+// such as dividing a number by zero or trying to convert a non-numeric string to a number
+
+//string to number conversion will return NaN
+let invalidNumber = Number('abc'); // this will return NaN
+
+// infinity devided by zero will return NaN
+let invalidNumber2 = Infinity / 0; // this will return NaN
+// data type of invalidNumber is number
 let result = 0 / 0; // this will return NaN (Not a Number)
 //data type of NaN is number
 
