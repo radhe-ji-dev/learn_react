@@ -32,7 +32,7 @@ function createCounter() {
 	};
 }
 
-const counter = createCounter();
+const counter =  createCounter();
 counter(); // 1
 counter(); // 2
 
