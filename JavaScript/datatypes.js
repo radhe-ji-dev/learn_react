@@ -52,6 +52,7 @@ let infinity = 1 / 0; // this will return Infinity
 //undifined
 let undifinedVariable; // this variable is declared but not assigned a value, so it is undefined
 // data type of undifinedVariable is undefined
+// any opration with undefined is NAN
 
 // we can also use typeof operator to check the data type of a variable
 console.log(typeof name);

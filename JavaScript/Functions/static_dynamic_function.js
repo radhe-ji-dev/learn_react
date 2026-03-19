@@ -39,7 +39,12 @@ const dynamicArrowFunction = () => {
 }
 dynamicArrowFunction(); // This is a dynamic arrow function
 
+// what cunstructor function in js
+// constructor function is a function which is used to create objects in js
+// it is a function which is used to initialize the properties of an object
+// it is a function which is used to create multiple instances of an object
 
+//=============================================================================
 
 // difference between static and dynamic function
 // static function is defined using function declaration and can be called without creating an instance of the class

@@ -100,5 +100,10 @@ Promise.race([promiseA, promiseB])
 
 
 
-
-
+// Asynchronous programming
+// is a programming paradigm that allows you to execute code without blocking the main thread.
+//  This is particularly important in JavaScript, which is single-threaded, meaning it can only execute one piece of code at a time.
+// Promises are a key tool for managing asynchronous operations in JavaScript,
+// allowing you to write cleaner and more maintainable code when dealing with tasks that take time to complete, such as fetching data from an API or reading files.
+// In summary, promises provide a structured way to handle asynchronous operations in JavaScript,
+// making it easier to manage the flow of your code and handle success and error cases effectively.
