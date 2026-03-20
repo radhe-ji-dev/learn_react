@@ -42,6 +42,13 @@ function outerFunction(x) {
 	return innerFunction;
 }
 
+// anonymos function
+
+var abc = function (a) {
+	console.log(a);
+	
+}
+
 // example usage
 console.log(add(5, 3));
 console.log(subtract(5, 3));

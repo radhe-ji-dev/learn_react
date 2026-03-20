@@ -114,3 +114,8 @@ console.log("Entries:", Object.entries({a:1, b:2}));
 
 // Run this file: node learn_react/JavaScript/OOPS/basicObject.js
 
+
+// object destructuring
+// shallow copy deep copy
+// proto type and inharitance 
+// api handling 
