@@ -1,0 +1,32 @@
+<html>
+	<head> </head>
+	<body>
+		<div id="root2">
+			<h1>Todo List</h1>
+			<input id="todoInput" placeholder="enter todo" />
+			<button id="addTodo">Add Todo</button>
+			<ul id="todoList"></ul>
+		</div>
+	</body>
+
+	<script>
+		const addtodo = document.getElementById('addTodo');
+		const input = document.getElementById('todoInput');
+		const todolist = document.getElementById('todoList');
+
+		addtodo.addEventListener('click', function () {
+			let text = input.value; // now it will work
+			let li = document.createElement('li');
+			li.textContent = text;
+			let deletebtn = document.createElement('button');
+			deletebtn.textContent = 'Delete';
+			deletebtn.addEventListener('click', function () {
+				todolist.removeChild(li);
+			});
+			li.appendChild(deletebtn);
+			todolist.appendChild(li);
+
+			// next we will implement edit button
+		});
+	</script>
+</html>

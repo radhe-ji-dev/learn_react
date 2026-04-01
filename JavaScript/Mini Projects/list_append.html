@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<title>List Append</title>
+	</head>
+	<body>
+		<ul id="list">
+			<li>item 1</li>
+			<li>item 2</li>
+		</ul>
+		<button id="bt1">click to add item</button>
+
+		<script>
+			let b1 = document.getElementById('bt1');
+			let l1 = document.getElementById('list');
+
+			b1.addEventListener('click', function () {
+				const li = document.createElement('li');
+				li.textContent = 'new item added';
+				l1.appendChild(li);
+			});
+		</script>
+	</body>
+</html>

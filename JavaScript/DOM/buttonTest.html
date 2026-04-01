@@ -1,0 +1,16 @@
+<html>
+	<head></head>
+
+	<body>
+		<button type="button" id="btn1">Test</button>
+		<p>Here we will see the onclick event</p>
+	</body>
+</html>
+
+<script>
+	let bt1 = document.getElementById('btn1');
+	console.log(bt1);
+	bt1.addEventListener('click', function () {
+		document.querySelector('p').textContent = 'Button clicked!';
+	});
+</script>

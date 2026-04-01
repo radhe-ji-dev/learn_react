@@ -2,6 +2,31 @@
 //  another function and is executed after a certain event or condition is met. It allows you to handle asynchronous operations,
 // such as fetching data from an API or responding to user interactions, without blocking the main thread of execution.
 
+
+
+//==== simples code sample ====
+// Step 1: Create a callback function
+function greet(name) {
+    console.log("Hello " + name);
+}
+
+// Step 2: Create a function that accepts a callback
+function processUser(callback) {
+    let userName = "Ravi";
+    
+    // calling the callback
+    callback(userName);
+}
+
+// Step 3: Pass function as argument
+processUser(greet);
+
+
+
+
+
+
+
 // Example of a callback function
 function fetchData(callback) {
 	// Simulating an asynchronous operation (e.g., fetching data from an API)
