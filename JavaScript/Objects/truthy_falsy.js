@@ -56,7 +56,7 @@ console.log('Logical assign result b:', b); // 100
 // Tricky QA Examples (Interview-style)
 console.group('Tricky QA');
 console.log('Q1: [] == false:', [] == false); // true ("" == false after toPrimitive)
-console.log('Q2: [] === false:', [] === false); // false
+//console.log('Q2: [] === false:', [] === false); // false
 console.log('Q3: ![]:', ![]); // false
 console.log('Q4: NaN == NaN:', NaN == NaN); // false (NaN != NaN)
 console.log(
@@ -69,5 +69,3 @@ console.log('Q8: 3 && 2 && 1:', 3 && 2 && 1); // 1 (last truthy)
 console.log('Q9: null || undefined && 0:', null || (undefined && 0)); // 0 (&& first)
 console.log('Q10: "" ? "truthy!" : "falsy":', '' ? 'truthy!' : 'falsy'); // falsy
 console.groupEnd();
-
-
