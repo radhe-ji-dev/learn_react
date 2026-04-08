@@ -1,0 +1,20 @@
+<html>
+	<head> </head>
+	<body>
+		<input id="ipt" class="iptclass" type="text" />
+		<button id="btn" class="btnclass">Get Count</button>
+		<textarea id="txtarea">input chr count</textarea>
+	</body>
+	<script>
+		let ipt = document.getElementById('ipt');
+		let btn = document.getElementById('btn');
+		let txtarea = document.getElementById('txtarea');
+
+		ipt.addEventListener('input', function () {
+			console.log(ipt.value);
+			let countstr = String(ipt.value);
+			console.log(countstr.length);
+			txtarea.value = countstr.length;
+		});
+	</script>
+</html>

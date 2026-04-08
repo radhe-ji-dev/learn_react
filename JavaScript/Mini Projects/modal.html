@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Modal Demo</title>
+
+		<style>
+			body {
+				font-family: Arial;
+				text-align: center;
+				margin-top: 100px;
+			}
+
+			button {
+				padding: 10px 20px;
+				cursor: pointer;
+			}
+
+			/* Modal background */
+			.modal {
+				display: none;
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: rgba(0, 0, 0, 0.5);
+			}
+
+			/* Show modal */
+			.show {
+				display: block;
+			}
+
+			/* Modal box */
+			.modal-content {
+				background: white;
+				width: 300px;
+				margin: 15% auto;
+				padding: 20px;
+				border-radius: 10px;
+				position: relative;
+			}
+
+			/* Close button */
+			.close {
+				position: absolute;
+				top: 10px;
+				right: 15px;
+				font-size: 20px;
+				cursor: pointer;
+			}
+		</style>
+	</head>
+
+	<body>
+		<button id="openBtn">Open Modal</button>
+
+		<div id="modal" class="modal">
+			<div class="modal-content">
+				<span id="closeBtn" class="close">&times;</span>
+				<h3>Hello 👋</h3>
+				<p>This is a simple modal popup</p>
+			</div>
+		</div>
+
+		<script>
+			let modal = document.getElementById('modal');
+			let openBtn = document.getElementById('openBtn');
+			let closeBtn = document.getElementById('closeBtn');
+
+			// Open modal
+			openBtn.addEventListener('click', () => {
+				modal.classList.add('show');
+			});
+
+			// Close modal (X button)
+			closeBtn.addEventListener('click', () => {
+				modal.classList.remove('show');
+			});
+
+			// Close on outside click
+			window.addEventListener('click', (e) => {
+				if (e.target === modal) {
+					modal.classList.remove('show');
+				}
+			});
+
+			// Close on ESC key
+			document.addEventListener('keydown', (e) => {
+				if (e.key === 'Escape') {
+					modal.classList.remove('show');
+				}
+			});
+		</script>
+	</body>
+</html>
