@@ -1,0 +1,63 @@
+
+1. **Simple Card UI**
+
+   * Create a card with image, title, description, button
+   * Focus: padding, margin, shadow, rounded, typography
+
+2. **Navbar (Responsive)**
+
+   * Logo + links + mobile hamburger menu
+   * Focus: flex, justify, hidden/block, responsive breakpoints
+
+3. **Login Form**
+
+   * Email + password + submit button
+   * Focus: form styling, focus states, borders, spacing
+
+---
+
+### 🔹 Intermediate → Layout Mastery
+
+4. **Dashboard Layout**
+
+   * Sidebar + header + content area
+   * Focus: flex/grid, height, width, positioning
+
+5. **Product Grid**
+
+   * 8–12 product cards in responsive grid
+   * Focus: grid-cols, gap, responsive design
+
+6. **Pricing Section**
+
+   * 3 pricing cards (basic, pro, premium)
+   * Highlight one plan
+   * Focus: hover, scale, border, bg colors
+
+---
+
+### 🔹 Advanced → Real UI Patterns
+
+7. **Modal (Popup)**
+
+   * Button → open modal → close modal
+   * Focus: fixed, z-index, overlay, transitions
+
+8. **Dropdown Menu**
+
+   * Click profile → show dropdown
+   * Focus: absolute positioning, group-hover, transitions
+
+9. **Image Gallery**
+
+   * Grid of images with hover zoom effect
+   * Focus: object-fit, overflow, transform, hover
+
+---
+
+### 🔹 Pro Level → Real-world polish
+
+10. **Fully Responsive Landing Page**
+
+* Hero section + features + footer
+* Focus: everything (spacing, grid, flex, responsive, typography)
