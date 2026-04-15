@@ -1,0 +1,97 @@
+Got it 👍 you want to **force usage of JS built-in methods (map, reduce, filter, etc.)** — good for interviews.
+
+Here are **library-focused 1-liner problems**:
+
+---
+
+### 🔹 Using `map()`
+
+* Convert array of numbers into their cubes
+* Add “₹” prefix to each price in array
+* Extract names from array of user objects
+* Convert array of strings to their lengths
+* Convert array of dates to readable format
+
+---
+
+### 🔹 Using `filter()`
+
+* Get all even numbers from array
+* Remove negative numbers
+* Filter users above age 18
+* Remove empty strings from array
+* Get products with price greater than 1000
+
+---
+
+### 🔹 Using `reduce()`
+
+* Find sum of all numbers
+* Find product of all numbers
+* Count occurrences of each element
+* Flatten an array (multi-level)
+* Find maximum value in array
+* Group objects by category
+
+---
+
+### 🔹 Using `find()` / `findIndex()`
+
+* Find first number greater than 50
+* Find first user with age > 25
+* Find index of first negative number
+* Find object with specific id
+
+---
+
+### 🔹 Using `some()` / `every()`
+
+* Check if any number is negative
+* Check if all numbers are positive
+* Check if any user is admin
+* Check if all strings are non-empty
+
+---
+
+### 🔹 Using `sort()`
+
+* Sort numbers ascending
+* Sort numbers descending
+* Sort strings alphabetically
+* Sort objects by price
+* Sort users by age
+
+---
+
+### 🔹 Using `flat()` / `flatMap()`
+
+* Flatten nested array
+* Convert sentences into words array
+* Split array of strings into characters
+
+---
+
+### 🔹 Using `Set` / `Map`
+
+* Remove duplicate values
+* Count frequency using Map
+* Find unique elements between two arrays
+* Store and retrieve key-value pairs
+
+---
+
+### 🔹 Mixed (real interview style)
+
+* Get unique values after merging two arrays
+* Find duplicates in array
+* Get top 3 highest numbers
+* Remove duplicate objects based on id
+* Find missing number in sequence
+* Convert array into grouped object by property
+* Calculate total cart value from array of items
+* Get average of numbers
+* Find longest string in array
+* Chain map + filter + reduce to process data
+
+---
+
