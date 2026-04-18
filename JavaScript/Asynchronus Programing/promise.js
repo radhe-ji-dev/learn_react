@@ -24,11 +24,14 @@ const p1 = Promise.resolve("Success!");
 
 const p2 = Promise.reject("Error!");
 
-const p3- promise.race([p1, p2]);
+const p3 = promise.race([p1, p2]);
 
-p1.then((value) => console.log("p1:", value)).catch((error) => console.error("p1 error:", error));
-p2.then((value) => console.log("p2:", value)).catch((error) => console.error("p2 error:", error));
-p3.then((value) => console.log("p3:", value)).catch((error) => console.error("p3 error:", error));
+p1.then((value) => console.log("p1:", value))
+    .catch((error) => console.error("p1 error:", error));
+p2.then((value) => console.log("p2:", value))
+    .catch((error) => console.error("p2 error:", error));
+p3.then((value) => console.log("p3:", value))
+    .catch((error) => console.error("p3 error:", error));
 
 
 // now learn about structures of promise and how to use them in real world application in next section
