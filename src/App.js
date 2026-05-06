@@ -1,10 +1,7 @@
-import SimpleComp from './tasks/day_1/simpleComp';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Form from './tasks/hooks/Form';
 
-/* path or uske element jo ki ek componnet hoga */
 function App() {
-	return (
-	)
+	return <Form />;
 }
 
 export default App;
