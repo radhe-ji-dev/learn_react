@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 function Form() {
-	const [name, setName] = useState('');
+	const [name, setName] = useState(''); // ek single state se kese kr skte hai ?
 	const [email, setEmail] = useState('');
 	const [gender, setGender] = useState('');
 	const [hobbies, setHobbies] = useState([]);
@@ -17,7 +17,9 @@ function Form() {
 		}
 	};
 
-	// ✅ form submit
+	// now we need to cpnver this into a function using a single Form State
+	// we will be using array, object, and spread oprators
+
 	const handleSubmit = (e) => {
 		e.preventDefault(); // prevent page reload
 
@@ -28,17 +30,16 @@ function Form() {
 			hobbies,
 		};
 
-		// ✅ save to localStorage
+		// local storage ke liye object ka use goo practice hai
 		const existingData = JSON.parse(localStorage.getItem('users')) || [];
 
 		existingData.push(formData); // form data ko push kiya
 
-		localStorage.setItem('users', JSON.stringify(existingData)); // user ko diya using stringify
+		localStorage.setItem('users', JSON.stringify(existingData)); // user ko diya using stringify key value pairs se
+		// or stringfy ne isko bhi key value bna diya
 
 		console.log('Saved:', formData);
 
-		// optional: reset form
-		setName('');
 		setEmail('');
 		setGender('');
 		setHobbies([]);
@@ -48,9 +49,7 @@ function Form() {
 		<div style={{ padding: '20px' }}>
 			<h2>Simple Form</h2>
 
-			{/* ✅ FORM TAG */}
 			<form onSubmit={handleSubmit}>
-				{/* Name */}
 				<label>Name:</label>
 				<br />
 				<input
@@ -60,7 +59,6 @@ function Form() {
 					style={{ border: '2px solid black', marginBottom: '10px' }}
 				/>
 				<br />
-				{/* Email */}
 				<label>Email:</label>
 				<br />
 				<input
@@ -70,7 +68,6 @@ function Form() {
 					style={{ border: '2px solid black', marginBottom: '10px' }}
 				/>
 				<br />
-				{/* Gender */}
 				<label>Gender:</label>
 				<br />
 				<input
