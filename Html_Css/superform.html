@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Form Validation</title>
+	</head>
+	<body>
+		<form id="myForm">
+			<label>Name</label>
+			<input type="text" id="name" />
+			<p id="nameError"></p>
+
+			<label>Email</label>
+			<input type="text" id="email" />
+			<p id="emailError"></p>
+
+			<label>Password</label>
+			<input type="password" id="password" />
+			<p id="passwordError"></p>
+
+			<label>Age</label>
+			<input type="number" id="age" />
+			<p id="ageError"></p>
+
+			<button type="submit">Submit</button>
+		</form>
+
+		<script>
+			const form = document.getElementById('myForm');
+
+			form.addEventListener('submit', function (e) {
+				e.preventDefault();
+
+				document.getElementById('nameError').innerText = '';
+				document.getElementById('emailError').innerText = '';
+				document.getElementById('passwordError').innerText = '';
+				document.getElementById('ageError').innerText = '';
+
+				const name = document.getElementById('name').value;
+				const email = document.getElementById('email').value;
+				const password = document.getElementById('password').value;
+				const age = document.getElementById('age').value;
+
+				if (name.length < 3) {
+					document.getElementById('nameError').innerText =
+						'Name must be at least 3 characters';
+				}
+
+				if (!email.includes('@')) {
+					document.getElementById('emailError').innerText = 'Invalid email';
+				}
+
+				if (password.length < 6) {
+					document.getElementById('passwordError').innerText =
+						'Password must be at least 6 characters';
+				}
+
+				if (age < 18) {
+					document.getElementById('ageError').innerText =
+						'Age must be 18 or above';
+				}
+			});
+		</script>
+	</body>
+</html>
