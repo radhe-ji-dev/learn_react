@@ -4,13 +4,22 @@ function SuperForm() {
 	const [form, setform] = useState({
 		name: '',
 		mail: '',
-    });
+	});
 
-    
+	const [error, setErrors] = useState({ });
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
+		let error = {};
+		if (form.name === '') {
+			error.name = 'name is empty';
+		}
+		if (form.mail === '') {
+			error.mail = 'mail is empty is empty';
+		}
+
+		setErrors(error);
 		console.log('form submit');
 		console.log(form);
 	};
@@ -34,7 +43,7 @@ function SuperForm() {
 					onChange={handleChange}
 					style={{ border: '4px solid' }}
 				/>
-
+				<p>{error.name}</p>
 				<label>Email</label>
 				<input
 					name='mail'
@@ -46,6 +55,7 @@ function SuperForm() {
 				/>
 
 				<input type='submit' value='Submit' />
+				<p>{error.mail}</p>
 			</form>
 		</div>
 	);
