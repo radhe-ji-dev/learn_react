@@ -7,6 +7,7 @@ export default function Cardgrid() {
 	const [name, setName] = useState('');
 	const [company, setCompany] = useState('');
 	const [city, setCity] = useState('');
+	const [selectedUser, setSelectedUser] = useState(null); // pop up modal
 
 	useEffect(() => {
 		const fetchUsers = async () => {
@@ -74,106 +75,91 @@ export default function Cardgrid() {
 
 	return (
 		<div>
-			<div>
+			<div className='flex justify-center bg-orange-200'>
+				<h1>User Directory</h1>
+			</div>
+			<div className='flex justify-center items-center'>
 				<input
 					type='text'
 					placeholder='name'
-					style={{ border: '2px solid black' }}
+					className='outline-double bg-blue-100'
 					onChange={handlChangeName}></input>
-				<button style={{ background: 'red' }} onClick={handleNameSearch}>
+				<button
+					onClick={handleNameSearch}
+					className=' m-3 rounded-xl bg-blue-600 px-6 py-3 font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:bg-neutral-800'>
 					Serach Name
 				</button>
 				<input
 					type='text'
 					placeholder='company'
-					style={{ border: '2px solid black' }}
+					className='outline-double bg-blue-100'
 					onChange={handlChangeCompany}></input>
-				<button style={{ background: 'red' }} onClick={handleCompanySearch}>
+				<button
+					onClick={handleCompanySearch}
+					className=' m-3 rounded-xl bg-blue-600 px-6 py-3 font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:bg-neutral-800'>
 					Serach Comapny
 				</button>
 				<input
 					type='text'
 					placeholder='city'
-					style={{ border: '2px solid black' }}
+					className='outline-double bg-blue-100'
 					onChange={handlChangeCity}></input>
-				<button style={{ background: 'red' }} onClick={handleCitySearch}>
+				<button
+					onClick={handleCitySearch}
+					className=' m-3 rounded-xl bg-blue-600 px-6 py-3 font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:bg-neutral-800'>
 					Serach City
 				</button>
 			</div>
 
-			<div className='flex col-span-4'>
+			<div className='grid grid-cols-3 gap-6'>
 				{users.map((user) => (
 					<div
 						key={user.id}
-						style={{
-							border: '2px solid black',
-							background: 'pink',
-							padding: '10px',
-							margin: '10px',
-						}}>
-						<h2>User Details</h2>
+						onClick={() => setSelectedUser(user)}
+						className='border p-5 rounded-2xl shadow-md hover:scale-105'>
+						{/* Small Info */}
+						<h1 className='text-xl font-bold'>{user.name}</h1>
 
-						<p>
-							<strong>Name:</strong> {user.name}
-						</p>
+						<p>{user.email}</p>
 
-						<p>
-							<strong>Username:</strong> {user.username}
-						</p>
-
-						<p>
-							<strong>Email:</strong> {user.email}
-						</p>
-
-						<p>
-							<strong>Phone:</strong> {user.phone}
-						</p>
-
-						<p>
-							<strong>Website:</strong> {user.website}
-						</p>
-
-						<h3>Company Details</h3>
-
-						<p>
-							<strong>Company Name:</strong> {user.company.name}
-						</p>
-
-						<p>
-							<strong>Catch Phrase:</strong> {user.company.catchPhrase}
-						</p>
-
-						<p>
-							<strong>Business:</strong> {user.company.bs}
-						</p>
-
-						<h3>Address Details</h3>
-
-						<p>
-							<strong>Street:</strong> {user.address.street}
-						</p>
-
-						<p>
-							<strong>Suite:</strong> {user.address.suite}
-						</p>
-
-						<p>
-							<strong>City:</strong> {user.address.city}
-						</p>
-
-						<p>
-							<strong>Zipcode:</strong> {user.address.zipcode}
-						</p>
-
-						<p>
-							<strong>Latitude:</strong> {user.address.geo.lat}
-						</p>
-
-						<p>
-							<strong>Longitude:</strong> {user.address.geo.lng}
-						</p>
+						<p>{user.address.city}</p>
 					</div>
 				))}
+
+				{/* Popup Modal */}
+
+				{selectedUser && (
+					<div
+						className='fixed inset-0 bg-black/50 
+		flex justify-center items-center'>
+						<div className='bg-white p-8 rounded-2xl w-[500px]'>
+							<h1 className='text-2xl font-bold mb-4'>{selectedUser.name}</h1>
+
+							<p>
+								<strong>Username:</strong> {selectedUser.username}
+							</p>
+
+							<p>
+								<strong>Phone:</strong> {selectedUser.phone}
+							</p>
+
+							<p>
+								<strong>Company:</strong> {selectedUser.company.name}
+							</p>
+
+							<p>
+								<strong>Street:</strong> {selectedUser.address.street}
+							</p>
+
+							<button
+								onClick={() => setSelectedUser(null)}
+								className='mt-5 px-5 py-2 bg-red-500 
+				text-white rounded-xl'>
+								Close
+							</button>
+						</div>
+					</div>
+				)}
 			</div>
 		</div>
 	);
