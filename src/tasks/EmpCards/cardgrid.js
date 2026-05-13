@@ -33,7 +33,9 @@ export default function Cardgrid() {
 	};
 
 	const handleNameSearch = (e) => {
-		const namefilter = users.filter((users) => users.name == name);
+		const namefilter = users.filter(
+			(users) => users.name.toLowerCase() == name.toLowerCase(),
+		);
 		console.log(namefilter);
 		setUsers(namefilter);
 	};
