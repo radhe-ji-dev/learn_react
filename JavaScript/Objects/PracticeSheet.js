@@ -1,528 +1,186 @@
-// here we are addd qna for final practice
+//================================//
 
-//Here are 10 progressively useful JavaScript object tasks focused on **real interview patterns**.
-/*These cover: object creation, dynamic keys, nested objects, loops, destructuring, cloning, merging, transformations, and common tricky concepts.
+// Create a user object with name, age, and city. Update age and add isAdmin key.
 
----
+// Create object using variable as key name dynamically.
 
-# 1. Create a User Object
-
-### Task
-
-Create an object for a user with:
-
-* name
-* age
-* city
-
-Then:
-
-* print all values
-* update age
-* add new key `isAdmin`
-
-### Example
-
-```js
-{
-  name: "Rahul",
-  age: 22,
-  city: "Udaipur"
-}
-```
-*/
-
-const emp = {
-	name: 'ram',
-	age: 23,
-};
-
-console.log(emp);
-emp.age = 56;
-console.log(emp.age);
-
-/*
-
-
-
-### Interview Concepts
-
-* Object basics
-* Dot notation
-* Bracket notation
-* Mutation
-
----
-
-# 2. Dynamic Key Creation
-
-### Task
-
-Take values from variables and create object dynamically.
-
-### Example
-
-```js
-const key = "email";
-const value = "rk@gmail.com";
-```
-
-Expected:
-
-```js
-{
-  email: "rk@gmail.com"
-}
-```
-
-### Interview Concepts
-
-* Computed properties
-* Dynamic objects
-
----
-
-*/
-
-const key = 'name';
-const value = 'ram';
-
-const emp2 = {
-	[key]: value,
-};
-
-console.log(emp2);
-
-/*
-
-
-# 3. Loop Through Object
-
-### Task
-
-Given an object:
-
-```js
-const student = {
-  name: "RK",
-  age: 21,
-  course: "BCA"
-};
-```
-
-Print:
-
-```txt
-name -> RK
-age -> 21
-course -> BCA
-```
-
-### Interview Concepts
-
-* `for...in`
-* `Object.keys()`
-* `Object.values()`
-* `Object.entries()`
-
----
-
-*/
-const student = {
-	name: 'RK',
-	age: 21,
-	course: 'BCA',
-};
-
-for (i in Object.keys(student)) {
-	console.log(Object.keys(student)[i]);
-}
-
-/*
-
-# 4. Count Object Keys
-
-### Task
-
-Write function:
-
-```js
-countKeys(obj)
-```
-
-Return total keys.
-
-### Example
-
-```js
-countKeys({a:1,b:2,c:3})
-// 3
-```
-
-### Interview Concepts
-
-* `Object.keys(obj).length`
-
----
-
-
-
-*/
-
-console.log('count key', Object.keys(student).length);
-
-/*
-# 5. Merge Two Objects
-
-### Task
-
-Merge:
-
-```js
-const obj1 = { a: 1, b: 2 };
-const obj2 = { c: 3, d: 4 };
-```
-
-Expected:
-
-```js
-{
-  a:1,
-  b:2,
-  c:3,
-  d:4
-}
-```
-
-### Interview Concepts
-
-* Spread operator
-
-```js
-{ ...obj1, ...obj2 }
-```
-
-* `Object.assign()`
-
----
-
-
-*/
-const merjobj = { ...student, ...emp };
-console.log(merjobj);
-
-/*
-# 6. Deep Access Nested Object
-
-### Task
-
-Get user's city from:
-
-*/
-const user = {
-	name: 'RK',
-	address: {
-		city: 'Jaipur',
-		state: 'Rajasthan',
+const emp1 = {
+	name: 'jay',
+	mail: 'rktiwadi@gmailcom',
+	addres: {
+		city: 'jaipur',
+		pin: '302021',
 	},
 };
 
-console.log(user.address.city);
-// for optional chaining
-console.log(user?.address?.city);
+const emp2 = {
+	name: 'ram',
+	mail: 'ram@mail.com',
+	addres: {
+		city: 'jaipur',
+		pin: '302021',
+	},
+};
 
-/*
-### Bonus
+// Print all keys and values of an object.
 
-Handle safely if object missing.
-
-### Interview Concepts
-
-* Nested objects
-* Optional chaining
-
-```js
-user?.address?.city
-```
-
----
-
-# 7. Convert Object to Array
-
-### Task
-
-Convert:
-
-```js
-{
-  name: "RK",
-  age: 22
+for (i of Object.entries(emp2)) {
+	console.log(i);
 }
-```
 
-Into:
+// Create function to count total keys in object.
 
-```js
-[
-  ["name", "RK"],
-  ["age", 22]
-]
-```
-
-### Interview Concepts
-
-* `Object.entries()`
-
----
-
-*/
-let arr = [];
-arr.push(Object.entries(student));
-console.log(arr);
-
-/*
-
-# 8. Remove Duplicate Objects from Array
-
-### Task
-
-Given:
-
-```js
-const users = [
-  { id: 1, name: "RK" },
-  { id: 2, name: "Sam" },
-  { id: 1, name: "RK" }
-];
-```
-
-Remove duplicates using `id`.
-
-### Interview Concepts
-
-* Objects + arrays
-* `Map`
-* `reduce`
-* Interview favorite
-
----
-
-*/
-const userlist = [
-	{ id: 1, name: 'RK' },
-	{ id: 2, name: 'Sam' },
-	{ id: 1, name: 'RK' },
-];
-
-const uniqueUsers = userlist.filter(
-	// important
-	(user, index, self) =>
-		index === self.findIndex((u) => u.id === user.id && u.name === user.name),
-);
-
-console.log(uniqueUsers);
-
-/*
-
-# 9. Group Data Using Objects
-
-### Task
-
-Convert:
-
-```js
-const products = [
-  { category: "electronics", name: "Phone" },
-  { category: "clothes", name: "Shirt" },
-  { category: "electronics", name: "Laptop" }
-];
-```
-
-Into:
-
-```js
-{
-  electronics: ["Phone", "Laptop"],
-  clothes: ["Shirt"]
+c = 0;
+for (i of Object.entries(emp2)) {
+	c = c + 1;
 }
-```
+console.log(c);
 
-### Interview Concepts
+// Merge two different objects into one object.
 
-* Object accumulation
-* Reduce
-* Dynamic keys
+const emp3 = { ...emp1, ...emp2 };
+console.log(emp3);
 
----
+const emp4 = Object.assign(emp1, emp2);
+console.log(emp4);
+console.log(emp2?.addres);
 
-*/
+// Access deeply nested object values safely.
 
-const products = [
-	{ category: 'electronics', name: 'Phone' },
-	{ category: 'clothes', name: 'Shirt' },
-	{ category: 'electronics', name: 'Laptop' },
+// Convert object into array of key-value pairs.
+
+let arrobj = [];
+
+for (i of Object.entries(emp1)) {
+	arrobj.push(i);
+}
+
+console.log(arrobj);
+
+// Convert array into object using reduce.
+
+const arr = [
+	['name', 'Rahul'],
+	['age', 22],
+	['city', 'Jaipur'],
 ];
 
-const groupedData = products.reduce((acc, curr) => {
-	// if category not present create empty array
-	if (!acc[curr.category]) {
-		acc[curr.category] = [];
-	}
-
-	// push product name into category array
-	acc[curr.category].push(curr.name);
-
+const obj = arr.reduce((acc, curr) => {
+	acc[curr[0]] = curr[1];
 	return acc;
 }, {});
 
-console.log(groupedData);
+console.log(obj);
 
-/*
+// Remove duplicate objects from array using unique id.
 
-# 10. Shallow Copy vs Deep Copy
-
-### Task
-
-Create:
-
-```js
-const user = {
-  name: "RK",
-  address: {
-    city: "Udaipur"
-  }
-};
-```
-
-Make:
-
-* shallow copy
-* deep copy
-
-Then modify nested object and observe difference.
-
-### Interview Concepts
-
-Very important interview topic.
-
-* Spread operator = shallow copy
-* `structuredClone()`
-* JSON methods limitations
-
----
-
-*/
-// shallow copy
-
-const studentC = {
-	name: 'RK',
-	age: 22,
-	address: {
-		city: 'Jaipur',
-		state: 'Rajasthan',
+const dupeemp2 = {
+	name: 'ram',
+	mail: 'ram@mail.com',
+	addres: {
+		city: 'jaipur',
+		pin: '302021',
 	},
-	skills: ['JS', 'React'],
+	name: 'jay',
 };
 
-console.log('Original Student');
-console.log(studentC);
+const revdupe = {};
 
-// ---------------- SHALLOW COPY ----------------
+// Group array data into object categories.
+const birds = ['parrot', 'mayna', 'bat'];
 
-const shallowCopy = { ...studentC };
+// Extract object properties into variables.
 
-console.log('\nShallow Copy');
-console.log(shallowCopy);
+const empname = emp1.name;
+const empmail = emp2.mail;
+console.log(empname, empmail);
 
-// change primitive value
-shallowCopy.name = 'Sam';
+// Extract nested object values directly.
 
-// change nested object value
-shallowCopy.address.city = 'Delhi';
+const city = emp2?.addres?.city;
+console.log(city);
 
-// change array value
-shallowCopy.skills.push('NodeJS');
+// Create shallow and deep copy and observe changes.
 
-console.log('\nAfter Changing shallowCopy');
-console.log('shallowCopy =>', shallowCopy);
+const copyobj = emp2;
+console.log(copyobj);
+emp2.addres.city = 'jodhpur';
+console.log(copyobj);
 
-console.log('\nOriginal student after shallow copy changes');
-console.log(studentC);
+// Prevent object modification using Object.freeze().
 
-// ---------------- DEEP COPY ----------------
+//Object.freeze(emp2)
+emp2.name = 'rk';
+console.log(emp2);
 
-const deepCopy = structuredClone(studentC);
+// Prevent adding/removing properties using Object.seal().
 
-console.log('\nDeep Copy');
-console.log(deepCopy);
+//Object.seal(emp1)
 
-// change primitive
-deepCopy.name = 'Rocky';
+// Check if key exists in object.
 
-// change nested object
-deepCopy.address.city = 'Mumbai';
+console.log(Object.hasOwn(emp1, 'name'));
 
-// change array
-deepCopy.skills.push('MongoDB');
+// Remove specific property from object.
 
-console.log('\nAfter Changing deepCopy');
-console.log('deepCopy =>', deepCopy);
+delete emp3.mail;
+console.log(emp3);
 
-console.log('\nOriginal student after deep copy changes');
-console.log(studentC);
+// Sort array of objects by age or name.
+let arrObj = [
+	{ name: 'jay', age: 24 },
+	{ name: 'ramesh', age: 40 },
+];
 
-/*
+arrObj.sort((a, b) => b.age - a.age);
+
+console.log(arrObj);
+
+// Find object with highest salary/marks from array.
+
+let oldestPerson = arrObj.reduce((max, person) => {
+	return person.age > max.age ? person : max;
+});
+console.log(oldestPerson);
+
+// Convert all object keys to uppercase/lowercase.
 
 
 
-# Bonus Interview-Level Tasks
+// Reverse object keys and values.
 
-## A. Object Destructuring
+// Check if two objects are equal.
 
-Extract:
+// Clone deeply nested object safely.
 
-```js
-const user = {
-  name: "RK",
-  age: 22
-};
-```
+// Create object dynamically from input fields.
 
-Into variables.
+// Return object with only selected properties.
 
----
+// Convert object into URL query params.
 
-*/
+// Count repeated elements using object.
 
-let a,
-	b = [user.name, user.address];
+// Convert nested object into single-level object.
 
-console.log(a, b);
+// Add methods/functions inside object.
 
-/*
+// Practice how this behaves in objects.
 
-## B. Freeze Object
+// Create objects using constructor functions.
 
-Use:
+// Add shared methods using prototype.
 
-```js
-Object.freeze()
-```
+// Create objects using ES6 classes.
 
-Understand immutability.
+// Loop and transform object using entries.
 
----
+// Calculate sum from object values.
 
-## C. Compare Two Objects
+// Extract and manipulate object keys.
 
-Why:
+// Merge deeply nested objects.
 
-```js
-{} === {}
-```
+// Convert object to JSON and back.
 
-*/
-
-// why they are false bcz objet are compared by refrence
-console.log(studentC === student);
-
+// Build small inventory object system.
