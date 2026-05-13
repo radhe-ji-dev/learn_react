@@ -5,10 +5,11 @@ import Cardgrid from './tasks/EmpCards/cardgrid';
 import Dashboard from './tasks/EmpCards/dashboard';
 
 function App() {
-	<div>
-		<Dashboard />
-		<Cardgrid />
-	</div>;
+	return (
+		<div>
+			<Cardgrid />
+		</div>
+	);
 }
 
 export default App;
