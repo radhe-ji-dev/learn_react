@@ -4,106 +4,132 @@ import axios from 'axios';
 
 export default function Cardgrid() {
 	const [users, setUsers] = useState([]);
+	const [filteredUsers, setFilteredUsers] = useState([]);
+
 	const [name, setName] = useState('');
 	const [company, setCompany] = useState('');
 	const [city, setCity] = useState('');
-	const [selectedUser, setSelectedUser] = useState(null); // pop up modal
+
+	const [selectedUser, setSelectedUser] = useState(null);
+
+	// loading + error
+	const [loading, setLoading] = useState(true);
+	const [error, setError] = useState('');
 
 	useEffect(() => {
 		const fetchUsers = async () => {
 			try {
+				setLoading(true);
+
 				const res = await axios.get(
 					'https://jsonplaceholder.typicode.com/users',
 				);
 
 				setUsers(res.data);
+				setFilteredUsers(res.data);
 			} catch (error) {
 				console.log(error);
+				setError('Something went wrong while fetching data.');
+			} finally {
+				setLoading(false);
 			}
 		};
 
 		fetchUsers();
 	}, []);
 
-	console.log(users);
+	// LIVE SEARCH
+	useEffect(() => {
+		const filtered = users.filter((user) => {
+			return (
+				user.name.toLowerCase().includes(name.toLowerCase()) &&
+				user.company.name.toLowerCase().includes(company.toLowerCase()) &&
+				user.address.city.toLowerCase().includes(city.toLowerCase())
+			);
+		});
 
-	// Name Search //
+		setFilteredUsers(filtered);
+	}, [name, company, city, users]);
+
+	// Name Search
 	const handlChangeName = (e) => {
 		setName(e.target.value);
-		console.log(name);
 	};
 
-	const handleNameSearch = (e) => {
-		const namefilter = users.filter(
-			(users) => users.name.toLowerCase() == name.toLowerCase(),
-		);
-		console.log(namefilter);
-		setUsers(namefilter);
+	const handleNameSearch = () => {
+		console.log('Name button clicked');
 	};
 
-	//Comapny Serach
+	// Company Search
 	const handlChangeCompany = (e) => {
 		setCompany(e.target.value);
-		console.log(company);
 	};
 
 	const handleCompanySearch = () => {
-		const companyfilter = users.filter(
-			(users) => users.company.name.toLowerCase() === company.toLowerCase(),
-		);
-
-		console.log(companyfilter);
-		setUsers(companyfilter);
-		console.log('company search clciked');
+		console.log('Company button clicked');
 	};
 
-	// City Search //
-
+	// City Search
 	const handlChangeCity = (e) => {
 		setCity(e.target.value);
-		console.log('change city input');
-		console.log(city);
 	};
 
-	const handleCitySearch = (e) => {
-		const cityfilter = users.filter(
-			(users) => users.address.city.toLowerCase() === city.toLowerCase(),
-		);
-		setUsers(cityfilter);
-		console.log('city search clciked');
+	const handleCitySearch = () => {
+		console.log('City button clicked');
 	};
+
+	// LOADING
+	if (loading) {
+		return <div className='text-center text-2xl mt-10'>Loading users...</div>;
+	}
+
+	// ERROR
+	if (error) {
+		return (
+			<div className='text-center text-red-500 text-2xl mt-10'>{error}</div>
+		);
+	}
 
 	return (
 		<div>
 			<div className='flex justify-center bg-orange-200'>
 				<h1>User Directory</h1>
 			</div>
+
 			<div className='flex justify-center items-center'>
 				<input
 					type='text'
 					placeholder='name'
 					className='outline-double bg-blue-100'
-					onChange={handlChangeName}></input>
+					onChange={handlChangeName}
+				/>
+
 				<button
 					onClick={handleNameSearch}
 					className=' m-3 rounded-xl bg-blue-600 px-6 py-3 font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:bg-neutral-800'>
 					Serach Name
 				</button>
+
 				<input
 					type='text'
 					placeholder='company'
 					className='outline-double bg-blue-100'
-					onChange={handlChangeCompany}></input>
+					onChange={handlChangeCompany}
+				/>
+
 				<button
 					onClick={handleCompanySearch}
 					className=' m-3 rounded-xl bg-blue-600 px-6 py-3 font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:bg-neutral-800'>
 					Serach Comapny
 				</button>
+
 				<input
 					type='text'
 					placeholder='city'
 					className='outline-double bg-blue-100'
-					onChange={handlChangeCity}></input>
+					onChange={handlChangeCity}
+				/>
+
 				<button
 					onClick={handleCitySearch}
 					className=' m-3 rounded-xl bg-blue-600 px-6 py-3 font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:bg-neutral-800'>
@@ -112,17 +138,41 @@ export default function Cardgrid() {
 			</div>
 
 			<div className='grid grid-cols-3 gap-6'>
-				{users.map((user) => (
+				{filteredUsers.map((user) => (
 					<div
 						key={user.id}
 						onClick={() => setSelectedUser(user)}
-						className='border p-5 rounded-2xl shadow-md hover:scale-105'>
-						{/* Small Info */}
+						className='border p-5 rounded-2xl shadow-md hover:scale-105 cursor-pointer'>
+						
+						<div className='w-14 h-14 rounded-full bg-blue-500 text-white flex justify-center items-center text-2xl font-bold mb-3'>
+							{user.name.charAt(0)}
+						</div>
+
 						<h1 className='text-xl font-bold'>{user.name}</h1>
 
-						<p>{user.email}</p>
+						<p>
+							<strong>Username:</strong> {user.username}
+						</p>
 
-						<p>{user.address.city}</p>
+						<p>
+							<strong>Email:</strong> {user.email}
+						</p>
+
+						<p>
+							<strong>Phone:</strong> {user.phone}
+						</p>
+
+						<p>
+							<strong>Website:</strong> {user.website}
+						</p>
+
+						<p>
+							<strong>Company:</strong> {user.company.name}
+						</p>
+
+						<p>
+							<strong>City:</strong> {user.address.city}
+						</p>
 					</div>
 				))}
 
@@ -144,11 +194,30 @@ export default function Cardgrid() {
 							</p>
 
 							<p>
+								<strong>Website:</strong> {selectedUser.website}
+							</p>
+
+							<p>
 								<strong>Company:</strong> {selectedUser.company.name}
 							</p>
 
 							<p>
-								<strong>Street:</strong> {selectedUser.address.street}
+								<strong>Catch Phrase:</strong>{' '}
+								{selectedUser.company.catchPhrase}
+							</p>
+
+							<p>
+								<strong>Full Address:</strong> {selectedUser.address.street},{' '}
+								{selectedUser.address.suite}, {selectedUser.address.city}
+							</p>
+
+							<p>
+								<strong>Zipcode:</strong> {selectedUser.address.zipcode}
+							</p>
+
+							<p>
+								<strong>Geo:</strong> Lat: {selectedUser.address.geo.lat} , Lng:{' '}
+								{selectedUser.address.geo.lng}
 							</p>
 
 							<button
