@@ -1,8 +1,8 @@
 //================================//
 
-// Create a user object with name, age, and city. Update age and add isAdmin key.
+// 1. Create a user object with name, age, and city. Update age and add isAdmin key.
 
-// Create object using variable as key name dynamically.
+// 2. Create object using variable as key name dynamically.
 
 const emp1 = {
 	name: 'jay',
@@ -22,32 +22,34 @@ const emp2 = {
 	},
 };
 
-// Print all keys and values of an object.
+// 3. Print all keys and values of an object.
 
 for (i of Object.entries(emp2)) {
 	console.log(i);
 }
 
-// Create function to count total keys in object.
+// 4. Create function to count total keys in object.
 
 c = 0;
+
 for (i of Object.entries(emp2)) {
 	c = c + 1;
 }
 console.log(c);
 
-// Merge two different objects into one object.
+// 5. Merge two different objects into one object.
 
 const emp3 = { ...emp1, ...emp2 };
+
 console.log(emp3);
 
 const emp4 = Object.assign(emp1, emp2);
 console.log(emp4);
 console.log(emp2?.addres);
 
-// Access deeply nested object values safely.
+// 6. Access deeply nested object values safely.
 
-// Convert object into array of key-value pairs.
+// 7. Convert object into array of key-value pairs.
 
 let arrobj = [];
 
@@ -57,7 +59,7 @@ for (i of Object.entries(emp1)) {
 
 console.log(arrobj);
 
-// Convert array into object using reduce.
+// 8. Convert array into object using reduce.
 
 const arr = [
 	['name', 'Rahul'],
@@ -72,7 +74,7 @@ const obj = arr.reduce((acc, curr) => {
 
 console.log(obj);
 
-// Remove duplicate objects from array using unique id.
+// 9. Remove duplicate objects from array using unique id.
 
 const dupeemp2 = {
 	name: 'ram',
@@ -86,47 +88,53 @@ const dupeemp2 = {
 
 const revdupe = {};
 
-// Group array data into object categories.
+// 10. Group array data into object categories.
+
 const birds = ['parrot', 'mayna', 'bat'];
 
-// Extract object properties into variables.
+// 11. Extract object properties into variables.
 
 const empname = emp1.name;
 const empmail = emp2.mail;
 console.log(empname, empmail);
 
-// Extract nested object values directly.
+// 12. Extract nested object values directly.
 
 const city = emp2?.addres?.city;
+
 console.log(city);
 
-// Create shallow and deep copy and observe changes.
+// 13. Create shallow and deep copy and observe changes.
 
 const copyobj = emp2;
+
 console.log(copyobj);
 emp2.addres.city = 'jodhpur';
 console.log(copyobj);
 
-// Prevent object modification using Object.freeze().
+// 14. Prevent object modification using Object.freeze().
 
 //Object.freeze(emp2)
+
 emp2.name = 'rk';
 console.log(emp2);
 
-// Prevent adding/removing properties using Object.seal().
+// 15. Prevent adding/removing properties using Object.seal().
 
-//Object.seal(emp1)
+// Object.seal(emp1)
 
-// Check if key exists in object.
+// 16. Check if key exists in object.
 
 console.log(Object.hasOwn(emp1, 'name'));
 
-// Remove specific property from object.
+// 17. Remove specific property from object.
 
 delete emp3.mail;
+
 console.log(emp3);
 
-// Sort array of objects by age or name.
+// 18. Sort array of objects by age or name.
+
 let arrObj = [
 	{ name: 'jay', age: 24 },
 	{ name: 'ramesh', age: 40 },
@@ -136,51 +144,55 @@ arrObj.sort((a, b) => b.age - a.age);
 
 console.log(arrObj);
 
-// Find object with highest salary/marks from array.
+// 19. Find object with highest salary/marks from array.
 
 let oldestPerson = arrObj.reduce((max, person) => {
 	return person.age > max.age ? person : max;
 });
 console.log(oldestPerson);
 
-// Convert all object keys to uppercase/lowercase.
+// 20. Convert all object keys to uppercase/lowercase.
 
+// 21. Reverse object keys and values.
 
+for (i of Object.entries(emp2)) {
+	(i[0], (i[1] = i[1]), i[0]);
+}
 
-// Reverse object keys and values.
+//console.log(emp1);
 
-// Check if two objects are equal.
+// 22. Check if two objects are equal.
 
-// Clone deeply nested object safely.
+// 23. Clone deeply nested object safely.
 
-// Create object dynamically from input fields.
+// 24. Create object dynamically from input fields.
 
-// Return object with only selected properties.
+// 25. Return object with only selected properties.
 
-// Convert object into URL query params.
+// 26. Convert object into URL query params.
 
-// Count repeated elements using object.
+// 27. Count repeated elements using object.
 
-// Convert nested object into single-level object.
+// 28. Convert nested object into single-level object.
 
-// Add methods/functions inside object.
+// 29. Add methods/functions inside object.
 
-// Practice how this behaves in objects.
+// 30. Practice how this behaves in objects.
 
-// Create objects using constructor functions.
+// 31. Create objects using constructor functions.
 
-// Add shared methods using prototype.
+// 32. Add shared methods using prototype.
 
-// Create objects using ES6 classes.
+// 33. Create objects using ES6 classes.
 
-// Loop and transform object using entries.
+// 34. Loop and transform object using entries.
 
-// Calculate sum from object values.
+// 35. Calculate sum from object values.
 
-// Extract and manipulate object keys.
+// 36. Extract and manipulate object keys.
 
-// Merge deeply nested objects.
+// 37. Merge deeply nested objects.
 
-// Convert object to JSON and back.
+// 38. Convert object to JSON and back.
 
-// Build small inventory object system.
+// 39. Build small inventory object system.
