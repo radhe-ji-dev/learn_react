@@ -5,6 +5,18 @@ import Cardgrid from './tasks/EmpCards/cardgrid';
 import Dashboard from './tasks/EmpCards/dashboard';
 import CompanyData from './tasks/hooks/useState/companyData';
 
+import contact from './tasks/Routing/contact';
+import about from './tasks/Routing/about';
+import nav from './tasks/Routing/nav';
+
+import {
+	broswerRoute,
+	BrowserRouter,
+	Route,
+	Router,
+	routes,
+} from 'react-router-dom';
+
 function App() {
 	const companyData = [
 		{
@@ -154,9 +166,13 @@ function App() {
 	];
 
 	return (
-		<div>
-			<CompanyData database={companyData} />
-		</div>
+		<BrowserRouter>
+			<Router>
+				<Route path='/' element={<nav />} />
+				<Route path='/about' element={<about />} />
+				<Route path='/contact' element={<contact />} />
+			</Router>
+		</BrowserRouter>
 	);
 }
 

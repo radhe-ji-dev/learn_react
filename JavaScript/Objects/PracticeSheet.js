@@ -154,14 +154,19 @@ console.log(oldestPerson);
 // 20. Convert all object keys to uppercase/lowercase.
 
 // 21. Reverse object keys and values.
+// Swap key/value pairs (value becomes key)
 
-for (i of Object.entries(emp2)) {
-	(i[0], (i[1] = i[1]), i[0]);
-}
+const reversedEmp2 = Object.fromEntries(
+	Object.entries(emp2).map(([key, val]) => [val, key]),
+);
+
+console.log(reversedEmp2);
 
 //console.log(emp1);
 
 // 22. Check if two objects are equal.
+
+console.log(emp1 === emp2);
 
 // 23. Clone deeply nested object safely.
 
@@ -175,7 +180,31 @@ for (i of Object.entries(emp2)) {
 
 // 28. Convert nested object into single-level object.
 
+function flattenObject(obj, parentKey = '', res = {}) {
+	for (const [key, value] of Object.entries(obj)) {
+		const newKey = parentKey ? `${parentKey}.${key}` : key;
+
+		// Recurse only for plain nested objects (not arrays, not null)
+		if (
+			value &&
+			typeof value === 'object' &&
+			!Array.isArray(value) &&
+			Object.getPrototypeOf(value) === Object.prototype
+		) {
+			flattenObject(value, newKey, res);
+		} else {
+			res[newKey] = value;
+		}
+	}
+	return res;
+}
+
+const flatobj = flattenObject(emp1);
+console.log(flatobj);
+
 // 29. Add methods/functions inside object.
+
+
 
 // 30. Practice how this behaves in objects.
 
