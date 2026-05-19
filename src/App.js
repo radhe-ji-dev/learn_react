@@ -8,21 +8,14 @@ import CompanyData from './tasks/hooks/useState/companyData';
 import contact from './tasks/Routing/contact';
 import about from './tasks/Routing/about';
 import Nav from './tasks/Routing/nav';
+import UseMemo from './tasks/hooks/useMemo/usememo';
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
 	return (
 		<div>
-			<BrowserRouter>
-				<Nav />
-
-				<Routes>
-					<Route path='/' element={<h1>Home</h1>} />
-					<Route path='/about' element={<about />} />
-					<Route path='/contact' element={<contact />} />
-				</Routes>
-			</BrowserRouter>
+			<UseMemo />
 		</div>
 	);
 }

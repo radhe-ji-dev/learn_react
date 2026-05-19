@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Simple HTML Page</title>
+		<link
+			href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+			rel="stylesheet" />
+	</head>
+	<body>
+		<div
+			class="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+			<form
+				class="flex flex-col justify-content-center"
+				onsubmit="handleSubmit(event)">
+				<label for="name">Name:</label>
+				<input class="border-4" id="name" name="name" required />
+				<label for="email">Email:</label>
+				<input class="border-4" type="email" id="email" name="email" required />
+
+				<label for="subscribe">Subscribe to newsletter</label>
+				<input
+					class="border-4"
+					type="checkbox"
+					id="terms"
+					name="terms"
+					required />
+
+				<label for="subscribe">Agree Terms Condition</label>
+				<input
+					class="border-4"
+					type="checkbox"
+					id="subscribe"
+					name="subscribe"
+					required />
+
+				<button class="border-4 bg-gradient bg-slate-300" type="submit">
+					Submit
+				</button>
+			</form>
+			<p id="pfull"></p>
+		</div>
+	</body>
+</html>
+
+<script>
+	handleSubmit = (e) => {
+		e.preventDefault();
+		const name = document.getElementById('name').value;
+		const email = document.getElementById('email').value;
+		console.log(name, email);
+		const para = document.getElementById('pfull');
+		para.textContent = `Name: ${name} Email: ${email}`;
+
+		alert('Form Submitted');
+	};
+</script>
