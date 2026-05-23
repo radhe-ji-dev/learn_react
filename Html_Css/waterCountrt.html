@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Water Tracker</title>
+
+		<style>
+			body {
+				font-family: Arial, sans-serif;
+				text-align: center;
+			}
+
+			.container {
+				display: flex;
+				justify-content: center;
+				margin-top: 30px;
+			}
+
+			.jug {
+				width: 200px;
+				height: 250px;
+				border: 8px solid #333;
+				border-bottom-left-radius: 25%;
+				border-bottom-right-radius: 25%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				font-size: 3rem;
+				font-weight: bold;
+
+				background: white;
+
+				transition: 0.3s;
+			}
+
+			.container_glass {
+				display: flex;
+				justify-content: center;
+				gap: 20px;
+				margin-top: 40px;
+			}
+
+			.glass {
+				width: 100px;
+				height: 150px;
+
+				border: 6px solid #333;
+
+				border-bottom-left-radius: 20%;
+				border-bottom-right-radius: 20%;
+
+				display: flex;
+				justify-content: center;
+				align-items: center;
+
+				cursor: pointer;
+				font-weight: bold;
+
+				background: lightblue;
+
+				transition: 0.3s;
+			}
+
+			button {
+				margin-top: 30px;
+				padding: 10px 20px;
+				font-size: 18px;
+				cursor: pointer;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="container">
+			<div class="jug">1L</div>
+		</div>
+
+		<div class="container_glass">
+			<div class="glass" onclick="fillGlass(this)">250ML</div>
+
+			<div class="glass" onclick="fillGlass(this)">250ML</div>
+
+			<div class="glass" onclick="fillGlass(this)">250ML</div>
+
+			<div class="glass" onclick="fillGlass(this)">250ML</div>
+		</div>
+
+		<button onclick="resetGlasses()">Reset</button>
+
+		<script>
+			const glasses = document.querySelectorAll('.glass');
+			const jug = document.querySelector('.jug');
+
+			// initially jug empty
+			let filledCount = 0;
+
+			// all glasses start full
+			glasses.forEach((glass) => {
+				glass.classList.add('filled');
+				glass.style.background = 'lightblue';
+			});
+
+			updateJug();
+
+			function fillGlass(glass) {
+				// if glass is filled → empty it
+				if (glass.classList.contains('filled')) {
+					glass.classList.remove('filled');
+
+					glass.style.background = 'white';
+
+					filledCount++;
+				}
+
+				// if glass already empty → refill it
+				else {
+					glass.classList.add('filled');
+
+					glass.style.background = 'lightblue';
+
+					filledCount--;
+				}
+
+				updateJug();
+			}
+
+			function updateJug() {
+				const percentage = (filledCount / glasses.length) * 100;
+
+				jug.style.background = `linear-gradient(
+            to top,
+            lightblue ${percentage}%,
+            white ${percentage}%
+        )`;
+			}
+
+			function resetGlasses() {
+				filledCount = 0;
+
+				jug.style.background = 'white';
+
+				glasses.forEach((glass) => {
+					glass.classList.add('filled');
+
+					glass.style.background = 'lightblue';
+				});
+			}
+		</script>
+	</body>
+</html>

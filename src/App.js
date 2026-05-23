@@ -11,11 +11,13 @@ import Nav from './tasks/Routing/nav';
 import UseMemo from './tasks/hooks/useMemo/usememo';
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import TryRef from './tasks/hooks/useRef/useRef';
+import OtpAuth from './tasks/OtpAuth/otpauth';
 
 function App() {
 	return (
 		<div>
-			<UseMemo />
+			<OtpAuth />
 		</div>
 	);
 }

@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Animated Nav</title>
+
+		<style>
+			.navbar {
+				display: flex;
+				align-items: center;
+				gap: 20px;
+				height: 60px;
+			}
+
+			.navlist {
+				display: flex;
+				list-style: none;
+				background: #333;
+				padding: 0;
+				margin: 0;
+				overflow: hidden;
+			}
+
+			.navitem {
+				padding: 14px 20px;
+				transition: all 0.5s ease;
+			}
+
+			.navitem a {
+				color: white;
+				text-decoration: none;
+			}
+
+			.navitem:hover {
+				background: #555;
+				transform: rotate(360deg);
+			}
+
+			.collapsed {
+				opacity: 0;
+				transform: translateY(-20px);
+			}
+
+			.collapsedNav .navlist {
+				display: none;
+				transform: translateX(-20px);
+			}
+
+			button {
+				padding: 10px 15px;
+				cursor: pointer;
+			}
+		</style>
+	</head>
+
+	<body>
+		<nav class="navbar">
+			<ul class="navlist">
+				<li class="navitem"><a href="#">Home</a></li>
+				<li class="navitem"><a href="#">About</a></li>
+				<li class="navitem"><a href="#">Services</a></li>
+				<li class="navitem"><a href="#">Contact</a></li>
+			</ul>
+
+			<button onclick="toggleNav()">Collapse</button>
+		</nav>
+
+		<script>
+			const navItems = document.querySelectorAll('.navitem');
+			const navbar = document.getElementsByClassName('navbar');
+
+			function toggleNav() {
+				navbar[0].classList.toggle('collapsedNav');
+				navItems.forEach((item) => {
+					item.classList.toggle('collapsed');
+				});
+			}
+		</script>
+	</body>
+</html>

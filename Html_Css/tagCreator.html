@@ -1,0 +1,42 @@
+<html>
+<head>
+
+    <body>
+    <title>Create Tags</title>
+    <textarea id="textarea">
+    </textarea>
+    <button id="button" onclick="handleSubmit()">Submit</button>
+    <div id="result"></div>
+    </body>
+    <script>
+        const textarea = document.getElementById('textarea');
+        const button = document.getElementById('button');
+    
+        function handleSubmit() {
+
+            const tags = textarea.value
+                .split(',')
+                .map(tag => tag.trim())
+                .filter(tag => tag.length > 0);
+            
+                for(i in tags){
+                    const tagElement = document.createElement('span');
+                    tagElement.textContent = tags[i];
+                    tagElement.style.display = 'inline-block';
+                    tagElement.style.padding = '5px 10px';
+                    tagElement.style.margin = '5px';
+                    tagElement.style.backgroundColor = '#f0f0f0';
+                    tagElement.style.borderRadius = '5px';
+                    document.getElementById('result').appendChild(tagElement);
+                }
+
+            console.log(tags);
+        }
+
+
+        
+        
+        
+    
+    </script>
+</html>

@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Target counter</title>
+	</head>
+	<body>
+		<label for="target">Target</label>
+		<input type="number" id="target" value="0" />
+		<button id="button" onclick="handleSubmit()">Submit</button>
+		<p class="targetctr">Target: <span id="targetValue">0</span></p>
+	</body>
+	<script>
+		const targetInput = document.getElementById('target');
+		const button = document.getElementById('button');
+
+		function handleSubmit() {
+			let c = 0;
+			let targetValue = targetInput.value;
+			const interval = setInterval(() => {
+				document.getElementById('targetValue').textContent = c;
+
+				c++;
+
+				if (c > targetValue) {
+					clearInterval(interval);
+				}
+			}, 200);
+		}
+	</script>
+</html>
