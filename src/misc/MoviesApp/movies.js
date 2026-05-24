@@ -1,7 +1,10 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { fasearch } from '@fortawesome/free-solid-svg-icons';
 import MovieCard from './movieCard';
+import SearchBar from './searchBar';
 
 export default function Movies() {
 	const [movies, setMovies] = useState([]);
@@ -19,11 +22,16 @@ export default function Movies() {
 
 	console.log(JSON.stringify(movies[0]));
 
-    return (
-			<div>
-				{movies.map((movie) => {
-					return <MovieCard movie={movie} />;
-				})}
+	return (
+		<div className='bg-slate-500 justify-evenly'>
+			<div className='justify-justify-content-center'>
+				<SearchBar />
 			</div>
-		);
+			<div className='grid grid-cols-5 p-0 m-0'>
+				{movies.map((movie, index) => (
+					<MovieCard key={`${movie.id}-${index}`} movie={movie} />
+				))}
+			</div>
+		</div>
+	);
 }

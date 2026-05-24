@@ -72,12 +72,21 @@ export default function MovieCard(props) {
 	return (
 		<div>
 			<div>
-				<img src={props.image.medium}></img>
-				<h4>{props.name}</h4>
-				<h5>{props.language}</h5>
-				<span>{props.rating.average ? <p>not</p> : props.rating.average}</span>
-				<div>
-					<p>{props.summary}</p>
+				<div
+					id='movieCard'
+					className='text-white  relative overflow-hidden rounded w-fit bg-gradient-to-t from-black via-black/70-t0-transparent '>
+					<img className='w-fit' src={props.movie.image.medium}></img>
+					<h4 classsName='w-fit'>
+						<strong>{props.movie.name}</strong>
+					</h4>
+					<h5>{props.movie.language}</h5>
+					{/*<span>{props.rating.average ? <p>not</p> : props.rating.average}</span>*/}
+					<p>Premiered AT :- {props.movie.premiered}</p>
+					<p>Generes :- {props.movie.genres}</p>
+
+					<div className='absolute inset-0 bg-black/40 text-white flex items-end p-4 -translate-y-full  hover:group-hover:-translate-y-0'>
+						{props.movie.summary}
+					</div>
 				</div>
 			</div>
 		</div>
