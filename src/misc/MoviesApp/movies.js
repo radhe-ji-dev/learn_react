@@ -7,10 +7,7 @@ import MovieCard from './movieCard';
 
 export default function Movies() {
 	const [movies, setMovies] = useState([]);
-
-	const searchHandler = () => {
-		console.log('search btn clicked');
-	};
+	const [searchTerm, setSearchTerm] = useState('');
 
 	useEffect(() => {
 		axios
@@ -23,14 +20,34 @@ export default function Movies() {
 			});
 	}, []);
 
-	console.log(JSON.stringify(movies[0]));
+	const searchHandler = () => {
+		let searchTerm = document.getElementById('searchbarInput').value;
+		// we want rexex for serach term if serach term any
+		// is present in movie name then we want to show that movie
+
+		let regex = new RegExp(searchTerm, 'i'); // 'i' for case-insensitive
+		if (searchTerm === '') {
+			axios
+				.get('https://api.tvmaze.com/shows?page=1')
+				.then((response) => {
+					setMovies(response.data);
+				})
+				.catch((error) => {
+					console.error('Error fetching movies:', error);
+				});
+			return;
+		}
+		let filteredMovies = movies.filter((movie) => regex.test(movie.name));
+		setMovies(filteredMovies);
+		console.log('search term:', searchTerm);
+	};
 
 	return (
 		<div className='bg-slate-500 justify-evenly'>
 			<div className='justify-content-center'>
 				<div className='p-2 bg-black'>
 					<input
-						className='p-3 rounded-lg text-white h-14 w-1/2'
+						className='p-3 rounded-lg text-black h-14 w-1/2'
 						id='searchbarInput'
 						placeholder='Search Movie'></input>
 					<span className='m-3'>
@@ -43,7 +60,7 @@ export default function Movies() {
 					</span>
 				</div>
 			</div>
-			
+
 			<div className='grid grid-cols-5 p-0 m-0'>
 				{movies.map((movie, index) => (
 					<MovieCard key={`${movie.id}-${index}`} movie={movie} />

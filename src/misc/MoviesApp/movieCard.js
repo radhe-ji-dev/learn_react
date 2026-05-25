@@ -72,9 +72,7 @@ export default function MovieCard(props) {
 	return (
 		<div>
 			<div>
-				<div
-					id='movieCard'
-					className='text-white  relative overflow-hidden rounded w-fit bg-gradient-to-t from-black via-black/70-t0-transparent '>
+				<div className='text-white  relative overflow-hidden rounded w-fit bg-gradient-to-t from-black via-black/70-t0-transparent '>
 					<img className='w-fit' src={props.movie.image.medium}></img>
 					<h4 classsName='w-fit'>
 						<strong>{props.movie.name}</strong>
