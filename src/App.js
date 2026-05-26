@@ -1,10 +1,10 @@
-import Movies from './misc/MoviesApp/movies';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Customhooks from './Learn/customHooks/customhooks';
 
 function App() {
 	return (
 		<div>
-			<Movies />
+			<Customhooks />
 		</div>
 	);
 }

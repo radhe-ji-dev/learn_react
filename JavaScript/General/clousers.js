@@ -98,6 +98,60 @@ counter.increment(); // Output: 3
 // Each time we call counter.increment(), it increments the count and logs the current value.
 // The count variable is private and cannot be accessed directly from outside the createCounter function, demonstrating how closures can be used to encapsulate state.
 
+//encapsulations with closures
+// Encapsulation is a fundamental principle of object-oriented programming that involves bundling data and methods that operate on that data within a single unit,
+// such as an object. In JavaScript,
+//  closures can be used to achieve encapsulation by creating private variables and functions that are not accessible from outside the enclosing function.
+function createPerson(name, age) {
+	let _name = name;
+	let _age = age;
+
+	return {
+		getName() {
+			return _name;
+		},
+		getAge() {
+			return _age;
+		},
+	};
+}
+const person = createPerson('Alice', 30);
+console.log(person.getName());
+console.log(person.getAge());
+
+// In this example, the createPerson function creates private variables _name and _age that are not accessible from outside the function.
+// The returned object has methods getName and getAge that can access these private variables, allowing us to retrieve the person's name and age without directly exposing the variables themselves.
+// This demonstrates how closures can be used to achieve encapsulation in JavaScript.
+
+//leaking closures
+// A closure is said to "leak" when it unintentionally retains references to variables that are no longer needed, which can lead to memory leaks.
+// This can happen when a closure holds onto large objects or data structures that are not properly cleaned up, preventing them from being garbage collected.
+function createLeakingClosure() {
+	let largeData = new Array(1000000).fill('leaking data'); // This creates a large array that will be retained in memory
+	return function () {
+		console.log(largeData[0]); // The closure retains a reference to largeData, preventing it from being garbage collected
+	};
+}
+const leakingClosure = createLeakingClosure();
+leakingClosure(); // Output: "leaking data"
+// In this example, the createLeakingClosure function creates a large array called largeData and returns a closure that references it.
+// Since the closure retains a reference to largeData, it prevents the array from being garbage collected, even if we no longer need it.
+// This can lead to memory leaks if the closure is kept around for a long time or if multiple closures are created that reference large data structures.
+// To avoid this, it's important to be mindful of what variables are being captured by closures and to clean up any references that are no longer needed.
+
+// variable shadowing in closures
+// Variable shadowing occurs when a variable declared within a certain scope (e.g., a function) has the same name as a variable declared in an outer scope.
+// In the context of closures, this can lead to confusion because the inner function may reference the outer variable instead of its own variable, or vice versa.
+function createShadowingClosure() {
+	let value = 'outer value'; // This variable is in the outer scope
+	return function () {
+		let value = 'inner value'; // This variable shadows the outer variable
+		console.log(value); // This will log 'inner value' because it references the inner variable
+	};
+}
+const shadowingClosure = createShadowingClosure();
+shadowingClosure(); // Output: "inner value"
+
 //InterviewQ:
 // 1. What is a closure in JavaScript?
 // 2. How do closures work in JavaScript?
