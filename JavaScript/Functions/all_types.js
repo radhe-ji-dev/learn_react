@@ -3,6 +3,22 @@
 ALL TYPES OF FUNCTIONS IN JAVASCRIPT - COMPLETE TUTORIAL
 ====================================================================
 
+//list down all types of functions in JavaScript
+//.1 Function Declaration
+//.2 Function Expression
+//.3 Arrow Functions (ES6)
+//.4 Constructor Functions (with 'new')
+//.5 Immediately Invoked Function Expression (IIFE)
+//.6 Callback Functions
+//.7 Higher-Order Functions (HOF)
+//.8 Closure Functions (Lexical scoping)
+//.9 Generator Functions (ES6)
+//.10 Async Functions (ES8)
+//.11 Recursive Functions
+//.12 Method Functions (Object methods)
+
+
+
 JavaScript functions are FIRST-CLASS: treated as values (assign, pass, return).
 Hoisted differently by type. Core to callbacks, OOP, async, higher-order patterns.
 

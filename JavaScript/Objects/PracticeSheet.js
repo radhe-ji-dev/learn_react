@@ -203,25 +203,123 @@ const flatobj = flattenObject(emp1);
 console.log(flatobj);
 
 // 29. Add methods/functions inside object.
+const emp5 = {
+	name: 'jay',
+	mail: 'rktiwadi@gmailcom',
+	addres: {
+		city: 'jaipur',
+		pin: '302021',
+	},
+	greet() {
+		console.log(`Hello, my name is ${this.name}`);
+	},
+};
 
-
+emp5.greet();
 
 // 30. Practice how this behaves in objects.
 
+//now for this in object method, it will refer to the object itself
+//but if we use arrow function, it will refer to the global object (window in browser)
+const emp6 = {
+	name: 'jay',
+	mail: 'rktiwadi@gmailcom',
+	addres: {
+		city: 'jaipur',
+		pin: '302021',
+	},
+	greet: () => {
+		console.log(`Hello, my name is ${this.name}`);
+	},
+};
+emp6.greet();
+
 // 31. Create objects using constructor functions.
+
+function Employee(name, mail, city) {
+	this.name = name;
+	this.mail = mail;
+	this.city = city;
+}
+
+const emp7 = new Employee('jay', 'rktiwadi@gmailcom', 'jaipur');
+console.log(emp7);
 
 // 32. Add shared methods using prototype.
 
+Employee.prototype.greet = function () {
+	console.log(`Hello, my name is ${this.name}`);
+};
+
+emp7.greet();
+
 // 33. Create objects using ES6 classes.
+
+class EmployeeClass {
+	constructor(name, mail, city) {
+		this.name = name;
+		this.mail = mail;
+		this.city = city;
+	}
+	greet() {
+		console.log(`Hello, my name is ${this.name}`);
+	}
+}
+
+const emp8 = new EmployeeClass('jay', 'rktiwadi@gmailcom', 'jaipur');
+emp8.greet();
 
 // 34. Loop and transform object using entries.
 
+for (i of Object.entries(emp8)) {
+	console.log(i);
+}
+
 // 35. Calculate sum from object values.
+const salary = {
+	emp1: 50000,
+	emp2: 60000,
+	emp3: 55000,
+};
+const totalSalary = Object.values(salary).reduce((acc, curr) => acc + curr, 0);
+console.log(totalSalary);
 
 // 36. Extract and manipulate object keys.
+const keys = Object.keys(emp8);
+const upperKeys = keys.map((key) => key.toUpperCase());
+console.log(upperKeys);
 
 // 37. Merge deeply nested objects.
+const obj1 = {
+	name: 'jay',
+	details: {
+		age: 24,
+		city: 'jaipur',
+	},
+};
+
+const obj2 = {
+	mail: 'rktiwadi@gmailcom',
+	details: {
+		pin: '302021',
+	},
+};
+
+const mergedObj = {
+	...obj1,
+	...obj2,
+	details: {
+		...obj1.details,
+		...obj2.details,
+	},
+};
+console.log(mergedObj);
 
 // 38. Convert object to JSON and back.
+
+const jsonString = JSON.stringify(emp8);
+console.log(jsonString);
+const parsedObj = JSON.parse(jsonString);
+console.log(parsedObj);
 
 // 39. Build small inventory object system.
