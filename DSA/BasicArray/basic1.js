@@ -88,3 +88,7 @@ while (numberForAlternatingSum > 0) {
 	numberForAlternatingSum = Math.floor(numberForAlternatingSum / 10);
 }
 console.log(sumOfAlternatingDigits);
+
+
+// sum of even and odd digits
+

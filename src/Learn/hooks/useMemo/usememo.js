@@ -23,3 +23,5 @@ export default function UsemMemo() {
 		</div>
 	);
 }
+
+// intv qna For use memo at all level

@@ -1,77 +1,42 @@
-// explore deep copy and shallow copy and call by reference and values
-
-let a = 10;
-
-function change(x) {
-	x = 20;
-}
-
-change(a);
-
-console.log(a); // 10 (no change)
-
-let obj = { name: 'Rahul' };
-
-function change(o) {
-	o.name = 'Amit';
-}
-
-change(obj);
-
-console.log(obj.name); // Amit (changed)
-
-// here we can no change bcz Reference copy changed, not original
-
-function change(o) {
-	o = { name: 'New' };
-}
-
-change(obj);
-
-console.log(obj.name); // Rahul (no change)d
-
-// deep copy and shallow copy
-
-let emp1 = {
-	name: 'rahul',
-	city: 'udaipur',
+const obj = {
+	name: 'rk',
+	age: '28',
 	address: {
-		area: 'sector 14',
+		city: 'bsw',
+		state: 'rajsthan',
+		country: 'india',
 	},
 };
 
-console.log(emp1);
+var getname = obj.name;
+console.log(getname);
 
-let emp2 = { ...emp1 };
+// ab dekhna h rest and spread
+const [a, b] = [1, 2, 3, 4, 5, 6];
+console.log(a, b);
+let [c, ...d] = [1, 2, 3, 4, 5, 6];
+console.log(d);
 
-console.log(emp2);
+let obj2 = obj;
+console.log(obj2);
 
-// lets make chages in copied obj
+//ab yha se dekte hai call  y value jo ki primitive types k liye h or call by ref jo object ke liye hai
 
-emp2.name = 'amit';
-emp2.city = 'jaipur';
-emp2.address.area = 'vaishali';
+//spred dete hai only function ke args me
 
-console.log('copied adn modified obj', emp2);
-console.log('lets check origal obj', emp1);
-// so thats wiered area is changed in original
+let names = 'name';
 
-// maually create a deep copy
-function deepCopy(obj) {
-	let copy = {};
+let arr = [1, 2, 3, 4, 5, 6];
 
-	for (let key in obj) {
-		if (typeof obj[key] === 'object' && obj[key] !== null) {
-			copy[key] = deepCopy(obj[key]);
-		} else {
-			copy[key] = obj[key];
-		}
-	}
+let printarr = function (a, b) {
+	return (a, b);
+};
 
-	return copy;
-}
+console.log(printarr(names, arr));
 
-// using library functions
+//pass by value and pass by reference
 
-let copy = structuredClone(emp1);
-console.log(copy);
+let n = 7;
+
+let nc = n;
+console.log(nc)
