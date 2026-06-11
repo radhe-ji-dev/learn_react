@@ -9,6 +9,8 @@ export default function UsemMemo() {
 		for (let i = 0; i < 10000; i++) {
 			result += num;
 		}
+		console.log('memo value', result);
+
 		return result;
 	};
 
